@@ -2,7 +2,7 @@
 
 <div align="center">
 <!-- Flower -->
-<img src="assets/logo/flower.jpg" width="512">
+<img src="assets/flower.jpg" width="512">
 
 </div>
 

@@ -14,7 +14,7 @@ Jintan uses Django, along with Django-Rest-Framework for core services. This inc
 This repository serves as both a proof-of-concept for building an auction system with Django, as well as an MVP for Cardbase's various backend services.
 
 ## Features (To Be Implemented)
-* Authentication for Native Login & OAuth2 [ ]
-* User Profile Management [ ]
-* Custom Feed Generation [ ]
-* Custom Auction System [ ]
+- [ ] Authentication for Native Login & OAuth2
+- [ ] User Profile Management 
+- [ ] Custom Feed Generation 
+- [ ] Custom Auction System 

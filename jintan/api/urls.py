@@ -4,10 +4,11 @@ from . import views
 from rest_framework.authtoken.views import obtain_auth_token
 
 urlpatterns = [
-    path('login/', views.LoginView.as_view(), name='api-login'),
-    path('logout/', views.LogoutView.as_view(), name='api-logout'),
-    path('signup/', views.CreateUserView.as_view(), name='api-signup'),
-    path('session/', views.SessionView.as_view(), name='api-session'),
-    path('whoami/', views.WhoAmIView.as_view(), name='api-whoami'),
-    path('api-token-auth/', obtain_auth_token),  # log-in service & token revalidation
+    path('todo/', views.TodoListView.as_view(), name='api-todo'),
+    path('todo/<int:pk>/', views.TodoDetailView.as_view(), name='api-todo-detail'),
+
+    path('user/', views.UserListView.as_view(), name='api-user'),
+    path('user/<str:username>/', views.UserDetailView.as_view(), name='api-user-detail'),
+    path('user/<str:username>/todo', views.UserTodoListView.as_view(), name='api-user-todo-view'),
+    path('profile/', views.ProfileView.as_view(), name='api-profile'),
 ]

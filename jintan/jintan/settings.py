@@ -26,10 +26,14 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+# Override default User
+AUTH_USER_MODEL = 'api.User'
+
 # Django Rest Framework
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
-        'rest_framework.authentication.TokenAuthentication'
+        'rest_framework.authentication.TokenAuthentication',
+        'rest_framework.authentication.SessionAuthentication',  # TODO: Turn off in production
     ],
 }
 
@@ -43,10 +47,13 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites',
+
     'api.apps.ApiConfig',
-    'rest_auth',
     'rest_framework',
     'rest_framework.authtoken',  # May be able to remove
+
+    'rest_auth',
+    'rest_auth.registration',
     'allauth',
     'allauth.account',
 ]
@@ -119,7 +126,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/Chicago'
 
 USE_I18N = True
 

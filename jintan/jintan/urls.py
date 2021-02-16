@@ -23,4 +23,5 @@ urlpatterns = [
     path('api/', include('api.urls')),  # API Services
     path('account/', include('rest_auth.urls')),  # Login/Logout
     path('account/registration', include('rest_auth.registration.urls')),  # Registration
+    path('stripe/', include('djstripe.urls', namespace='djstripe')),
 ]

@@ -5,10 +5,10 @@ from rest_framework.authtoken.views import obtain_auth_token
 
 urlpatterns = [
     path('todo/', views.TodoListView.as_view(), name='api-todo'),
+    # path('todo/<str:username>/', views.UserTodoListView.as_view(), name='api-user-todo-view'),
     path('todo/<int:pk>/', views.TodoDetailView.as_view(), name='api-todo-detail'),
 
     path('user/', views.UserListView.as_view(), name='api-user'),
     path('user/<str:username>/', views.UserDetailView.as_view(), name='api-user-detail'),
-    path('user/<str:username>/todo', views.UserTodoListView.as_view(), name='api-user-todo-view'),
     path('profile/', views.ProfileView.as_view(), name='api-profile'),
 ]

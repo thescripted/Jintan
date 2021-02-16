@@ -1,37 +1,44 @@
 <script>
-	export let name;
-    let count = 0;
-    $: doubled = count * 2;
+	let todos = [
+		{ done: false, text: 'finish Svelte tutorial' },
+		{ done: false, text: 'build an app' },
+		{ done: false, text: 'world domination' }
+	];
 
-    function handleClick() {
-        count += 1
-    }
+	function add() {
+		todos = todos.concat({ done: false, text: '' });
+	}
+
+	function clear() {
+		todos = todos.filter(t => !t.done);
+	}
+
+	$: remaining = todos.filter(t => !t.done).length;
 </script>
 
-<main>
-	<h1>Hello {name}!</h1>
-	<p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
-    <button on:click={handleClick}>Clicked {count} {count === 1 ? 'time' : 'times'}, doubled is {doubled}</button>
-</main>
+<h1>Todos</h1>
 
-<style>
-	main {
-		text-align: center;
-		padding: 1em;
-		max-width: 240px;
-		margin: 0 auto;
-	}
+{#each todos as todo}
+	<div>
+		<input
+			type=checkbox
+			bind:checked={todo.done}
+		>
 
-	h1 {
-		color: #ff3e00;
-		text-transform: uppercase;
-		font-size: 4em;
-		font-weight: 100;
-	}
+		<input
+			placeholder="What needs to be done?"
+			bind:value={todo.text}
+			disabled={todo.done}
+		>
+	</div>
+{/each}
 
-	@media (min-width: 640px) {
-		main {
-			max-width: none;
-		}
-	}
-</style>
+<p>{remaining} remaining</p>
+
+<button on:click={add}>
+	Add new
+</button>
+
+<button on:click={clear}>
+	Clear completed
+</button>

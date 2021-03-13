@@ -1,1 +1,1 @@
-web: gunicorn jintan/jintan
+web: gunicorn jintan.jintan.wsgi

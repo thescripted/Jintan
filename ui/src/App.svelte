@@ -1,44 +1,46 @@
 <script>
-	let todos = [
+	let records = [
 		{ done: false, text: 'finish Svelte tutorial' },
 		{ done: false, text: 'build an app' },
 		{ done: false, text: 'world domination' }
 	];
 
-	function add() {
-		todos = todos.concat({ done: false, text: '' });
-	}
+    let username = "";
+    let password = "";
+    let yes = false
 
-	function clear() {
-		todos = todos.filter(t => !t.done);
-	}
+    function handleSubmit() {
+        // send AJAX request to django backend.
+        console.log("Credentials:", username, password, yes);
+        username = "";
+        password = "";
+    }
 
-	$: remaining = todos.filter(t => !t.done).length;
+    function addCard() {
+        // POST card
+        console.log("adding card...");
+    }
+
 </script>
 
-<h1>Todos</h1>
+<h1>Cardbase UI Testing Environment</h1>
 
-{#each todos as todo}
-	<div>
-		<input
-			type=checkbox
-			bind:checked={todo.done}
-		>
+<form on:submit|preventDefault={handleSubmit}>
+    <input placeholder="Username..." bind:value={username}>
+    <input placeholder="Password..." bind:value={password}>
+    <label>
+        <input type=checkbox bind:checked={yes}>
+        Remember my username.
+    </label>
+    <button>Log In</button>
+</form>
 
-		<input
-			placeholder="What needs to be done?"
-			bind:value={todo.text}
-			disabled={todo.done}
-		>
-	</div>
+
+<h1>Current Active Cards</h1>
+
+{#each records as record}
+    <p>{record.text}</p>
 {/each}
 
-<p>{remaining} remaining</p>
-
-<button on:click={add}>
-	Add new
-</button>
-
-<button on:click={clear}>
-	Clear completed
-</button>
+<h2>Actions</h2>
+<button on:click={addCard}>Add Card</button>

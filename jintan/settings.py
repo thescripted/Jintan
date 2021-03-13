@@ -167,4 +167,4 @@ STATICFILES_DIR = (
 django_heroku.settings(locals())
 
 # Enable SSL. This will likely lie behind a proxy server, making this unnecessary.
-SECURE_SSL_REDIRECTS = True
+SECURE_SSL_REDIRECT = True

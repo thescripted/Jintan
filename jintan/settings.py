@@ -22,7 +22,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'p(d*@6+jj=31cnt!fg^_tjxa(n#2h=q783)a0a3m^1f0#svg*8'
+SECRET_KEY = 'p(d*@6+jj=31cnt!fg^_tjxa(n#2h=q783)a0a3m^1f0#svg*8' # Update this, obviously...
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -120,9 +120,6 @@ DATABASES = {
 DATABASES['default'] = dj_database_url.config(conn_max_age=600,
                                               ssl_require=True)
 
-# Heroku Deployment Configuration
-django_heroku.settings(locals())
-
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
 
@@ -165,3 +162,6 @@ STATICFILES_DIR = (
     os.path.join(BASE_DIR, 'static'),
 )
 
+
+# Heroku Deployment Configuration
+django_heroku.settings(locals())

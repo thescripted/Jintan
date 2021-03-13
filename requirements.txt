@@ -12,11 +12,13 @@ Django==3.1.5
 django-allauth==0.44.0
 django-cors-headers==3.7.0
 django-filter==2.4.0
+django-heroku==0.3.1
 django-rest-auth==0.9.5
 django-stubs==1.7.0
 djangorestframework==3.12.2
 djangorestframework-stubs==1.4.0
 flake8==3.8.4
+gunicorn==20.0.4
 idna==2.10
 isort==5.7.0
 itypes==1.2.0
@@ -30,6 +32,7 @@ mypy==0.800
 mypy-extensions==0.4.3
 mysqlclient==2.0.3
 oauthlib==3.1.0
+psycopg2==2.8.6
 psycopg2-binary==2.8.6
 pycodestyle==2.6.0
 pycparser==2.20
@@ -50,4 +53,5 @@ typed-ast==1.4.2
 typing-extensions==3.7.4.3
 uritemplate==3.0.1
 urllib3==1.26.3
+whitenoise==5.2.0
 wrapt==1.12.1

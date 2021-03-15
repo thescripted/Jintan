@@ -50,7 +50,13 @@ AUTHENTICATION_BACKENDS = [
 ]
 
 # SMTP Server
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+MAILGUN_API_KEY = os.getenv('MAILGUN_API_KEY')
+EMAIL_HOST = 'smtp.sendgrid.net'
+EMAIL_HOST_USER = 'apikey'  # this is exactly the value 'apikey'
+EMAIL_HOST_PASSWORD = MAILGUN_API_KEY 
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -70,7 +76,6 @@ INSTALLED_APPS = [
     'rest_auth.registration',
     'allauth',
     'allauth.account',
-    'allauth.socialaccount',
 ]
 
 SITE_ID = 1
